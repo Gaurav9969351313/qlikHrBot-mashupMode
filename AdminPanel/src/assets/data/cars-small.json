@@ -1,0 +1,14 @@
+{
+    "data": [
+        {"brand": "VW", "year": 2012},
+        {"brand": "Audi", "year": 2011},
+        {"brand": "Renault", "year": 2005},
+        {"brand": "BMW", "year": 2003},
+        {"brand": "Mercedes", "year": 1995},
+        {"brand": "Volvo", "year": 2005},
+        {"brand": "Honda", "year": 2012},
+        {"brand": "Jaguar", "year": 2013},
+        {"brand": "Ford", "year": 2000},
+        {"brand": "Fiat", "year": 2013}
+    ]
+}

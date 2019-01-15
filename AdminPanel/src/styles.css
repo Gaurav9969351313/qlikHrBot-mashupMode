@@ -1,0 +1,91 @@
+@import "~bootstrap/dist/css/bootstrap.css";
+@import "~font-awesome/css/font-awesome.css";
+
+.loginPanel{
+    padding-left: 30%;
+    padding-right: 30%;
+    padding-top:11%;
+}
+
+.mahindra_logo_wrapper {
+    height: 50px;
+    position: absolute;
+    width: 200px;
+}
+
+.mahindra_logo {
+    height: 50px;
+    width: 120px;
+    border-radius: 5px;
+    background-color: #fff;
+    border: 1px solid white;
+}
+
+.bg-dark {
+    background-color: #e31837 !important;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #e31837;
+    border-color: #fff;
+}
+
+body .ui-accordion .ui-accordion-header:not(.ui-state-disabled).ui-state-active a {
+    background-color: #42454e;
+    border: 1px solid #42454e;
+    color: #ffffff;
+}
+
+body .ui-accordion .ui-accordion-header:not(.ui-state-active):not(.ui-state-disabled):hover a {
+    background-color: #dbdbdb;
+    border: 1px solid #dbdbdb;
+    color: #fff;
+}
+
+body .ui-accordion .ui-accordion-header:not(.ui-state-active):not(.ui-state-disabled):hover a {
+    background-color: #dbdbdb;
+    border: 1px solid #dbdbdb;
+    color: #fff;
+}
+
+body .ui-accordion .ui-accordion-header:not(.ui-state-disabled).ui-state-active:hover a {
+    border: 1px solid #e31837;
+    background-color: #e31837;
+    color: #ffffff;
+}
+
+body .ui-accordion .ui-accordion-header a {
+    padding: 0.571em 1em;
+    border: 1px solid #c8c8c8;
+    color: #333333;
+    background-color: #42454e;
+    color: #e9e0e0;
+    font-weight: 400;
+    transition: background-color 0.2s;
+}
+
+body .ui-button {
+    margin: 0;
+    color: #ffffff;
+    background-color: #e31837;
+    border: 1px solid #e31837;
+    font-size: 14px;
+    transition: background-color 0.2s, box-shadow 0.2s;
+}
+
+body .ui-button:enabled:hover {
+    background-color: #832332;
+    color: #ffffff;
+    border-color: #832332;
+}
+
+body .ui-table .ui-table-tbody > tr.ui-state-highlight {
+    background-color: #832332;
+    color: #ffffff;
+}
+
+body .ui-table .ui-table-tbody > tr:nth-child(even).ui-state-highlight {
+    background-color: #832332;
+    color: #ffffff;
+}

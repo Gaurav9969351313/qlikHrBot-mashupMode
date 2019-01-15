@@ -1,0 +1,125 @@
+<p-dialog header="Menu Config Details" [(visible)]="displayDialogForMenuconfig" [responsive]="true" showEffect="fade" [modal]="true"
+  [closable]="true" [width]="700">
+  <div class="ui-g ui-fluid" *ngIf="selectedMenuConfigRow">
+
+    <div class="ui-g-2">
+      <label for="Sequence">Sequence</label>
+    </div>
+    <div class="ui-g-10">
+      <input pInputText id="nSequence" [(ngModel)]="selectedMenuConfigRow.nSequence" />
+    </div>
+
+    <div class="ui-g-2">
+      <label for="isLandingMenu">Menu Level</label>
+    </div>
+    <div class="ui-g-10">
+      <input pInputText id="isLandingMenu" [(ngModel)]="selectedMenuConfigRow.isLandingMenu" />
+    </div>
+
+    <div class="ui-g-2">
+      <label for="Value">Name</label>
+    </div>
+    <div class="ui-g-10">
+      <input pInputText id="name" [(ngModel)]="selectedMenuConfigRow.name" />
+    </div>
+
+    <div class="ui-g-2">
+      <label for="Value">Lib ID</label>
+    </div>
+    <div class="ui-g-10">
+      <input pInputText id="strLibID" [(ngModel)]="selectedMenuConfigRow.strLibID" />
+    </div>
+
+
+    <div class="ui-g-2">
+      <label for="reqType">Req. Type</label>
+    </div>
+    <div class="ui-g-10">
+      <input pInputText id="reqType" [(ngModel)]="selectedMenuConfigRow.reqType" />
+    </div>
+
+
+    <div class="ui-g-2">
+      <label for="sheetName">Sheet Name</label>
+    </div>
+    <div class="ui-g-10">
+      <select class="form-control" id="power" (change)="onSheetNemeChange($event)" [(ngModel)]="selectedMenuConfigRow.sheetName">
+        <option *ngFor="let sheet of sheetData" [value]="sheet.SheetTitle">{{sheet.SheetTitle}}</option>
+      </select>
+    </div>
+
+    <div class="ui-g-2">
+      <label for="objId">Object Id</label>
+    </div>
+    <div class="ui-g-10">
+      <select class="form-control" id="power" [(ngModel)]="selectedMenuConfigRow.objId">
+        <option *ngFor="let objIds of sheetWiseObjects" [value]="objIds">{{objIds}}</option>
+      </select>
+    </div>
+
+    <div class="ui-g-2">
+      <label for="selections">Selections</label>
+    </div>
+    <div class="ui-g-10">
+      <input pInputText id="strAdditionalObjects" [(ngModel)]="selectedMenuConfigRow.strSelections" />
+    </div>
+
+    <div class="ui-g-2">
+      <label for="objId">Additinal Objects</label>
+    </div>
+    <div class="ui-g-10">
+      <input pInputText id="strAdditionalObjects" [(ngModel)]="selectedMenuConfigRow.strAdditionalObjects" />
+    </div>
+
+    <div class="ui-g-2">
+      <label for="btns">Buttons</label>
+    </div>
+    <div class="ui-g-10">
+      <input pInputText id="btns" [(ngModel)]="selectedMenuConfigRow.btns" />
+    </div>
+
+  </div>
+  <p-footer>
+    <div class="ui-dialog-buttonpane ui-helper-clearfix">
+
+      <div *ngIf="role=='user'">
+        <button type="button" pButton icon="pi pi-times" (click)="menuConfigCancel()" label="Cancel"></button>
+      </div>
+      <div *ngIf="role=='admin'">
+        <button type="button" pButton icon="pi pi-times" (click)="menuConfigCancel()" label="Cancel"></button>
+        <button type="button" pButton icon="pi pi-times" (click)="menuConfigDelete()" label="Delete"></button>
+        <button type="button" pButton icon="pi pi-check" (click)="menuConfigSave()" label="Save"></button>
+      </div>
+    </div>
+  </p-footer>
+</p-dialog>
+
+
+<p-table [columns]="menuConfigCols" [value]="menuConfigRows" selectionMode="single" [(selection)]="selectedMenuConfigRow"
+  (onRowSelect)="onRowSelectMenuConfig($event)" [paginator]="false" rows="10">
+  <ng-template pTemplate="header" let-columns>
+    <tr>
+      <th *ngFor="let col of columns">
+        {{col.header}}
+      </th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-rowData let-columns="columns">
+    <tr [pSelectableRow]="rowData">
+      <td *ngFor="let col of columns" style="word-wrap: break-word;">
+        <div *ngIf="col.type=='url'">
+          <a style="text-decoration: underline;color:red" (click)="objectIdClicked(rowData[col.field])"> {{rowData[col.field]}} </a>
+        </div>
+        <div *ngIf="col.type=='string'">
+          {{rowData[col.field]}}
+        </div>
+      </td>
+    </tr>
+  </ng-template>
+
+  <ng-template pTemplate="summary" let-rowData>
+    <div style="text-align:left">
+      <button type="button" pButton icon="pi pi-plus" (click)="showDialogToAddMenuConfig()" label="Add"></button>
+    </div>
+  </ng-template>
+</p-table>

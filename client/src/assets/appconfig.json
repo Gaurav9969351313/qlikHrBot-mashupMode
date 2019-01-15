@@ -1,0 +1,11 @@
+{
+  "serviceUrl": "http://localhost:5100",
+  "voices": [
+    { "name": "Microsoft David Desktop - English (United States)", "lang": "en-US" },
+    { "name": "Microsoft Zira Desktop - English (United States)", "lang": "en-US" },
+    { "name": "Google US English", "lang": "en-US" },
+    { "name": "Google UK English Female", "lang": "en-GB" },
+    { "name": "Google UK English Male", "lang": "en-GB" }
+  ],
+  "selectedVoiceConfiguration":0
+}

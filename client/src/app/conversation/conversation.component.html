@@ -1,0 +1,135 @@
+<div class="chats-content">
+
+  <div id="loader" class="rply-msg-box typing-gif-box" style="width: auto; padding: 0px; position: absolute; bottom: 60px; display: none;">
+    <div class="">
+      <img src="assets/images/typing-gif.gif">
+    </div>
+  </div>
+  <div class="rply-msg-box">
+    <p> {{ storageAndUtilsService.getGreeting() }} {{ userName }}, How can I help you?</p>
+    <!-- <app-messagetime></app-messagetime> -->
+  </div>
+  <div class="clearfix"></div>
+</div>
+
+<ul id="conversation" style="height: 85vh;">
+  <div *ngFor="let conv of arrConversation;let i = index;">
+
+    <div *ngIf="conv.type == 'hiddeniframe'">
+      <iframe class="iframe-border" [hidden]="'true'" width="100%" height="400px" [src]="conv.url | safebrowse"></iframe>
+      <div id="sheetListHere"></div>
+    </div>
+
+    <div *ngIf="conv.type == 'landingCard' && dictLandingPageLinks.length > 0">
+      <span class="chat-img pull-left" style="display: inline-block;width: 10px;">
+        <img ng-src="assets/images/M_logo.PNG" alt="BOT" class="img-circle doneLoading" src="assets/images/M_logo.PNG">
+        <input type="checkbox" (change)="bookmarkThis(i,conv)" style="margin: 4px;">
+      </span>
+
+      <li class="left lastchat clearfix rply-msg-box">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title"> Menu </h5>
+            <ul style="list-style: none;height: auto;">
+              <li *ngFor="let intentLink of dictLandingPageLinksWithURLS">
+
+                <div (click)="landingPageLinkClicked(intentLink)">
+                  {{ intentLink?.name }}
+                </div>
+
+              </li>
+            </ul>
+            <div class="text-center">
+              <button type="button" (click)="toggle()" class="btn btn-xs btn-info faqtoggle">View More</button>
+            </div>
+          </div>
+        </div>
+      </li>
+    </div>
+
+    <div *ngIf="conv.type == 'iframewithbuttons'">
+      <span class="chat-img pull-left" style="display: inline-block;width: 10px;">
+        <img ng-src="assets/images/M_logo.PNG" alt="BOT" class="img-circle doneLoading" src="assets/images/M_logo.PNG">
+        <input type="checkbox" (change)="bookmarkThis(i,conv)" style="margin: 4px;">
+      </span>
+
+      <li class="left lastchat clearfix rply-msg-box">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">{{ conv.cardHeader }}</h5>
+            <p class="card-text">
+              <iframe #results class="iframe-border" width="100%" height="375px" [src]="conv.url | safebrowse"></iframe>
+            </p>
+
+            <div style="display:inline-block;border: 1px solid #e32b3a;" class="listbtn3 listbtns listbtn1" *ngFor="let btn of conv?.btnsData">
+              <div (click)="btnClicked(btn)">{{btn}}</div>
+            </div>
+          </div>
+        </div>
+        <!-- <app-messagetime></app-messagetime> -->
+      </li>
+    </div>
+
+    <div *ngIf="conv.type == 'iframe'">
+      <span class="chat-img pull-left" style="display: inline-block;width: 10px;">
+        <img ng-src="assets/images/M_logo.PNG" alt="BOT" class="img-circle doneLoading" src="assets/images/M_logo.PNG">
+        <input type="checkbox" (change)="bookmarkThis(i,conv)" style="margin: 4px;">
+      </span>
+      <li class="left lastchat clearfix rply-msg-box">
+        <div class="">
+          <div class="card-body">
+            <h5 class="card-title">{{ conv.cardHeader }}</h5>
+            <p class="card-text">
+              <iframe class="iframe-border" width="100%" height="400px" [src]="conv.url | safebrowse"></iframe>
+            </p>
+          </div>
+          <!-- <app-messagetime></app-messagetime> -->
+        </div>
+      </li>
+    </div>
+
+    <div *ngIf="conv.type == 'userMsg'" class="right lastchat clearfix">
+      <span class="chat-img pull-right">
+        <img ng-src="assets/images/logo7.png" alt="BOT" class="img-circle  doneLoading" src="assets/images/logo7.png">
+      </span>
+      <div class="chat-body">
+        <div class="clearfix ng-scope" ng-if="list.position==='right'">
+          <p class="lastmsg ng-binding">
+            {{ conv.text }}
+          </p>
+        </div>
+        <!-- <app-messagetime></app-messagetime> -->
+      </div>
+    </div>
+
+  </div>
+</ul>
+
+
+<div class="reply-box">
+  <div class="container-fluid">
+    <!--  dialogForm.form.valid &&  -->
+    <form name="form" (ngSubmit)="sendMessage()" #dialogForm="ngForm">
+      <div class="row" style="display: block;">
+        <div class="col-xs-11">
+          <div class="reply-input-box">
+
+            <input id="myInput" type="text" class="rply-input" name="dialog" [(ngModel)]="messageDialogModel.dialog" #dialog="ngModel"
+              required placeholder="reply">
+            <div id="rec" class="voice-box">
+              <i id="rec1" class="fa fa-microphone"></i>
+            </div>
+            <div id="rec" class="voice-box">
+              <i id="rec1" (click)="starRecording()" class="fa fa-microphone"></i>
+            </div>
+            <!-- <button (click)="download()" class="btn btn-warning btn-sm">Download results</button> -->
+            <div class="voice-box1" type="submit">
+              <i class="fa fa-paper-plane-o"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+
+  </div>
+</div>

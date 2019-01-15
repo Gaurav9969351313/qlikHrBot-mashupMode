@@ -1,0 +1,64 @@
+<div *ngIf="showChatBotWrapper" #chatWindow class="chat-window opened">
+  <div class="mahindra_logo">
+    <img src="./assets/images/mahindra_logo.jpg" class="img-responsive doneLoading">
+  </div>
+  <div class="upper-div text-center">
+    <div class="gif-box">
+    </div>
+    <img src="./assets/images/close-icon.png" (click)="CloseChatBotWrapper()" class="close-btn">
+    <i [ngClass]="expandFlag ? 'fa fa-arrow-down' : 'fa fa-arrow-left'" style="cursor: pointer;position: absolute;margin-top: -17px;color: white;right: 40px;"
+      (click)="toggleExpand()"></i>
+    <i class="fa fa-envelope" (click)="open(content)" style="cursor: pointer;position: absolute;margin-top: -17px;color: white;right: 70px;"></i>
+
+    <i class="fa fa-trash" (click)="clearChat()" style="cursor: pointer;position: absolute;margin-top: -17px;color: white;right: 100px;"></i>
+
+
+    <!-- <img src="./assets/images/close-icon.png" (click)="open(content)" class="close-btn" style="right: 70px;"> -->
+    <!-- <img src="./assets/images/close-icon.png" (click)="toggleExpand()" class="close-btn" style="right: 40px"> -->
+
+    <!-- https://mdbootstrap.com/docs/angular/components/dropdowns/ -->
+    <!-- "(step=='step1')?'my-class1':'my-class2'"  class="fa fa-arrow-down"-->
+
+  </div>
+
+  <ng-template #content let-modal>
+    <div class="modal-header">
+      <h3 style="margin-bottom: 25px; text-align: center;">Contact Form</h3>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div class="container">
+
+        <div class="form-area">
+          <form role="form">
+            <div class="form-group">
+              <input type="email" class="form-control" id="email" name="email" placeholder="Email To" [disabled]="true" [(ngModel)]="contact.email"
+                required>
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control" id="subject" name="subject" placeholder="Subject" [(ngModel)]="contact.subject" required>
+            </div>
+            <div class="form-group">
+              <textarea class="form-control" type="textarea" id="message" name="message" placeholder="Message" [(ngModel)]="contact.message"
+                maxlength="140" rows="7"></textarea>
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button type="button" id="submit" name="submit" class="btn btn-primary pull-right" (click)="modal.close(contact)">Submit Form</button>
+    </div>
+  </ng-template>
+
+
+  <div #scrollMe class="chat-outer-wrapper">
+    <div class="chat-wrapper">
+      <app-login></app-login>
+    </div>
+  </div>
+
+</div>

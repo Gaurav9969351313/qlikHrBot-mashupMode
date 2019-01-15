@@ -1,0 +1,19 @@
+key,value
+MSG_CARD_HEADER,Please find below information for {% intent %}.
+URL_LOGIN,http://mmkndmoprd:8080/vms/login1
+URL_CACHING,http://localhost:7000/getWholeMetaData?forceFulRedisCacheUpdate=0
+APPID,d2d69372-0872-4319-ab68-e2784c2db879
+URL_RENDER_MULTIOBJ_MASHUP,https://qsdev.mahindra.com/extensions/HR_Phase1/HR_Phase1.html
+URL_QLIKENGINE_WEBSOCKET,wss://qsdev.mahindra.com/app/d2d69372-0872-4319-ab68-e2784c2db879
+CONST_AES_KEY,M@h1ndra$1234567
+CONST_AES_IV,0001000100010001
+MSG_LOGIN_ERROR,User Logged In Sucessfully
+MSG_LOGIN_SUCESS,"Hi {% username %}, How may I help you ?"
+MSG_CARD_HEADER_TEMP,Please find below information for {% userIntent %} Number
+URL_AD_LOGIN,https://mapps.mahindra.com/OAuthOneSAML/client/tokenRequest
+URL_NLP_SERVICE,http://localhost:5000
+URL_BACKEND_SERVICE,http://localhost:7000
+CONST_CONTACT_EMAIL,talele.gaurav@mahindra.com
+URL_SINGLE_CONFIGURATOR,https://qsdev.mahindra.com/single/?appid={% APPID %}&otf=1&obj={% OBJID %}&opt=currsel%2cnoanimate&qlikTicket={% QLIKTICKET %}
+URL_SELECTION_THROUGH_MASHUP,https://qsdev.mahindra.com
+URL_DEV_HUB,https://qsdev.mahindra.com/hub/my/work?qlikTicket={% qTicket %}

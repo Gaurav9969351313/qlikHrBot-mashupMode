@@ -1,0 +1,74 @@
+<p-dialog header="App Config Details" [(visible)]="displayDialogForAppconfig" [responsive]="true" showEffect="fade" [modal]="true"
+    [closable]="true" [width]="700">
+    <div class="ui-g ui-fluid" *ngIf="selectedAppConfigRow">
+
+        <div class="ui-g-2">
+            <label for="Key">Key</label>
+        </div>
+        <div class="ui-g-10">
+            <input pInputText id="key" [(ngModel)]="selectedAppConfigRow.key" />
+        </div>
+
+        <div class="ui-g-2">
+            <label for="Value">Value</label>
+        </div>
+        <div class="ui-g-10">
+            <input pInputText id="value" [(ngModel)]="selectedAppConfigRow.value" />
+        </div>
+
+    </div>
+    <p-footer>
+        <div class="ui-dialog-buttonpane ui-helper-clearfix">
+            <button type="button" pButton icon="pi pi-times" (click)="appConfigCancel()" label="Cancel"></button>
+            <button type="button" pButton icon="pi pi-times" (click)="appConfigDelete()" label="Delete"></button>
+            <button type="button" pButton icon="pi pi-check" (click)="appConfigSave()" label="Save"></button>
+
+        </div>
+    </p-footer>
+</p-dialog>
+
+
+<p-accordion>
+  <p-accordionTab header="Step 1: App Level Constants">
+      <p-panel header="Description">
+
+          <p-table [columns]="appConfigCols" [value]="appConfigRows" selectionMode="single" 
+          [(selection)]="selectedAppConfigRow" (onRowSelect)="onRowSelectAppConfig($event)"
+              [paginator]="false" rows="10">
+              <ng-template pTemplate="header" let-columns>
+                  <tr>
+                      <th *ngFor="let col of columns">
+                          {{col.header}}
+                      </th>
+                  </tr>
+              </ng-template>
+              <ng-template pTemplate="body" let-rowData let-columns="columns">
+                  <tr [pSelectableRow]="rowData">
+                      <td *ngFor="let col of columns">
+                          {{rowData[col.field]}}
+                      </td>
+                  </tr>
+              </ng-template>
+
+              <ng-template pTemplate="summary" let-rowData>
+                  <div style="text-align:left">
+                      <button type="button" pButton icon="pi pi-plus" (click)="showDialogToAddAppConfig()" label="Add"></button>
+                  </div>
+              </ng-template>
+          </p-table>
+      </p-panel>
+  </p-accordionTab>
+
+
+  <p-accordionTab header="Step 2: Define Menu">
+      <p-panel header="Description">
+
+      </p-panel>
+  </p-accordionTab>
+
+  <p-accordionTab header="Step 3: Default Selections">
+      <p-panel header="Description">
+
+      </p-panel>
+  </p-accordionTab>
+</p-accordion>

@@ -1,0 +1,12 @@
+nSequence,isLandingMenu,isActive,name,reqType,sheetName,objId,strAdditionalObjects,strLibID,btns
+4,1,0,Re Hire Report,2,Employee New Joinee Report,max,PUzNyUY|TauKNBw,,
+1,1,0,Head Count,1,Headcount Officers (Page 1),2d0143be-bc5a-446a-a125-a68af6bf927b,,jvWtS,Permanent$Employee Category|Probationer$Employee Category|Trainee$Employee Category|Contract$Employee Category|Others$Employee Category|OTP$Employee Category
+2,1,0,Attrition,1,Attrition Officers (Page 1),BZmLC,,pkhxzd,Permanent$Employee Category|Probationer$Employee Category|Trainee$Employee Category|Contract$Employee Category|Others$Employee Category|OTP$Employee Category
+3,1,0,New Joinee Report,2,Employee New Joinee Report,max,,,
+6,1,0,Educational Qualification Report,2,Education Details & Previous Employer Report,YxYJtfm,LQRPe,,
+7,1,0,Employee Movement Report,2,Employee Movements Report,XPppQM,LNuvYJS,,
+8,1,0,RW Sanctions Report,2,RW Sanctions,epsF,mDfHHTH,,
+9,1,0,Employee Confirmation Report,2,Employee Confirmation Report,FYPay,JJkzejV,,
+0,2,0,,3,,,,,Sector$Sector|Business Unit$Business Unit|Division$Division|Sub Division$Sub Division|Department$Department|Sub Department$Sub Department|Business Function$Business Function|Location$Location
+5,1,0,Milestone Work Anniversery Report,2,Milestone Reports,tVGU,EjDgZL|qNvZPr,,
+0,3,0,,3,,,,,Gender$Gender|Tenure$Tenure_Group|Age$Age_Group|Band$Band
